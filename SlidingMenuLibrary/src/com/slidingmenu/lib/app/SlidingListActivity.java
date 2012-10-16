@@ -1,14 +1,15 @@
 package com.slidingmenu.lib.app;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ListView;
 
+import com.actionbarsherlock.app.SherlockListActivity;
 import com.slidingmenu.lib.SlidingMenu;
 
-public class SlidingFragmentActivity extends FragmentActivity implements SlidingActivityBase {
+public class SlidingListActivity extends SherlockListActivity implements SlidingActivityBase {
 
 	private SlidingActivityHelper mHelper;
 
@@ -17,6 +18,9 @@ public class SlidingFragmentActivity extends FragmentActivity implements Sliding
 		super.onCreate(savedInstanceState);
 		mHelper = new SlidingActivityHelper(this);
 		mHelper.onCreate(savedInstanceState);
+		ListView listView = new ListView(this);
+		listView.setId(android.R.id.list);
+		setContentView(listView);
 	}
 
 	@Override
